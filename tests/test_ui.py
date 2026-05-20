@@ -1,3 +1,4 @@
+import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -7,7 +8,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 @pytest.fixture
 def driver():
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-    driver.get("file:///C:/path/to/your/project/index.html")  # Замените на свой путь
+    # Получаем абсолютный путь к index.html в репозитории
+    file_path = os.path.abspath("index.html")
+    driver.get(f"file://{file_path}")
     yield driver
     driver.quit()
 
