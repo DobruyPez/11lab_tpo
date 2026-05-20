@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма обратной связи</title>
+</head>
+<body>
+    <h1>Оставьте сообщение</h1>
+    <form id="feedbackForm">
+        <input type="text" id="name" placeholder="Ваше имя" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <textarea id="message" placeholder="Сообщение" required></textarea>
+        <button type="submit">Отправить</button>
+    </form>
+    <p id="response"></p>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('response').innerText = 'Спасибо, ' + document.getElementById('name').value + '!';
+        });
+    </script>
+</body>
+</html>
