@@ -24,7 +24,6 @@ def driver():
     # Правильный путь к index.html
     index_path = os.path.abspath("index.html")
     driver.get(f"file://{index_path}")
-    
     yield driver
     driver.quit()
 
